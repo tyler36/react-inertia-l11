@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
+import react from "@vitejs/plugin-react";
 
 const port = 5173;
 const origin = `${process.env.DDEV_PRIMARY_URL}:${port}`;
@@ -7,9 +8,10 @@ const origin = `${process.env.DDEV_PRIMARY_URL}:${port}`;
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js'],
+            input: ['resources/css/app.css', 'resources/js/app.jsx'],
             refresh: true,
         }),
+        react(),
     ],
     // Adjust Vites dev server for DDEV: https://vitejs.dev/config/server-options.html
     server: {
